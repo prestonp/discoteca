@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log
+config.js
+public/stylesheets/*.css
+public/js/build.js

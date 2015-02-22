@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title Discoteca!
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900', rel='stylesheet', type='text/css')
+  body
+    .current
+      .container
+        img.album
+        .info-wrapper
+          .info
+          .time
+    nav
+      .container
+        a.active(href="#" data-toggle="section-queue") Queue
+        a(href="#" data-toggle="section-search") Search
+        .stats
+    section.section-queue
+      .container
+        table.table
+          thead
+            tr
+              th Track
+              th Artist
+              th Time
+              th
+          tbody
+        ul.queue-list
+    section.section-search.hide
+      .container
+        .search
+          form.form-search
+            input.search-input(type='text', placeholder='Search tracks, artists or albums')
+            button.search-btn(type='submit') Search
+      .container
+        table.table
+          thead
+            tr
+              th Track
+              th Artist
+              th Time
+              th
+          tbody
+    block content
+    block scripts
+      script(src="http://code.jquery.com/jquery-1.11.0.min.js")
+      // script(src="http://preston.local:4000/socket.io/socket.io.js")
+      script(src="http://localhost:4000/socket.io/socket.io.js")
+      script(src="/js/build.js")
+      script(src="/js/app.js")

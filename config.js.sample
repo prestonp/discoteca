@@ -1,0 +1,8 @@
+var config = {
+  spotify: {
+    clientId: '<CLIENT ID>'
+  , clientSecret: '<CLIENT SECRET>'
+  }
+};
+
+module.exports = config;
