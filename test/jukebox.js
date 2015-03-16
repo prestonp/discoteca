@@ -1,35 +1,24 @@
 var assert = require("assert")
-var jukebox = require('../lib/jukebox');
+var noop = function() {};
+var identity = function(x) { return x; };
 
-describe('Jukebox', function(){
-  describe('client controller', function(){
-    it('should return queue', function() {
-      assert(Array.isArray(jukebox.get()));
-    });
-    it('play', function(){
-      assert(false);
-    });
+// mocked spotify
+var spotify = {
+  player: { on: noop }
+, createFromLink: identity
+};
 
-    it('pause', function() {
-      assert(false);
-    });
+var Jukebox = require('../lib/jukebox');
+var jukebox = new Jukebox({ spotify: spotify });
+
+describe('lib/jukebox.js', function(){
+  it('should return queue', function() {
+    assert(Array.isArray(jukebox.get()));
   });
 
-  describe('web api', function() {
-    it('search track', function() {
-      assert(false);
-    });
-
-    it('enqueue track', function() {
-      jukebox.enqueue({ });
-      var queue = jukebox.get();
-      assert(queue.length);
-    });
-  });
-
-  describe('actions', function() {
-    it('skip current track', function() {
-      assert(false);
-    });
+  it('should enqueue track', function() {
+    jukebox.clear();
+    jukebox.enqueue('fake-track-link');
+    assert(jukebox.get().length);
   });
 })
