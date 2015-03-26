@@ -3,31 +3,44 @@ Discoteca
 
 > Jukebox web app powered by Spotify
 
-Discoteca is a jukebox server that handles searching and adding songs. At the Goodybag.com office
-we installed speakers, so Discoteca powers our music system.
-
-The interface actually just talks to the spotify client via applescript, so you will need to run the client while Discoteca
-is live.
 
 Prequisites
 -----------
 
-* Spotify premium subscription
-* Spotify OSX client
+* Spotify premium subscription and application key **(spotify_appkey.key)**
 * node.js
+* libspotify
+
+Download libspotify
+-------------------
+
+Get libspotify
+```
+brew install homebrew/binary/libspotify
+```
+
+In case you need xcode command line tools:
+
+```
+xcode-select --install
+```
 
 Install
 -------
 
 ```shell
-git clone ---
+git clone https://github.com/prestonp/discoteca.git
 npm install
 ```
 
 Configure
 ---------
 
-Customize options in `config.json`
+```shell
+cp config.js.sample config.js
+```
+
+Then replace credentials and server setup options.
 
 Run
 -------
@@ -36,7 +49,7 @@ Run
 npm start
 ```
 
-By default, the server will begin to listen on port 4000.
+By default, the server will listen on http://localhost:4000.
 
 Screenshots
 -----------

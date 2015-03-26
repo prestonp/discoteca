@@ -3,3 +3,6 @@ npm-debug.log
 config.js
 public/stylesheets/*.css
 public/js/build.js
+spotify_appkey.key
+cache/
+settings/

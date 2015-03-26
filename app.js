@@ -9,10 +9,13 @@ var routes = require('./routes/index');
 var config = require('./config');
 var app = express();
 var server = require('http').Server(app);
-server.listen(process.env.PORT || 4000);
+var port = config.port;
+server.listen(port);
+
+console.log('Listening on port', port);
 var io = require('socket.io')(server);
 var qs = require('qs');
-var dio = require('./dio')(io);
+var dio = require('./lib/dio')(io);
 var request = require('request');
 var jukebox = require('./lib/jukebox');
 
@@ -30,42 +33,6 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
-app.get('/callback', function(req, res) {
-  var code = req.query.code || null;
-  var state = req.query.state || null;
-});
-
-app.get('/playpause', function(req, res) {
-  spotify.playPause(function() {
-    console.log(arguments);
-    res.send('play/pause spotify');
-  });
-});
-
-app.get('/enqueue', function(req, res) {
-  jukebox.enqueue(req.query);
-  console.log(req.query);
-  res.redirect('/');
-});
-
-app.get('/playTrack/:trackId', function(req, res) {
-  var id = 'spotify:track:' + req.params.trackId;
-  console.log('trying to play ', id);
-  spotify.playTrack(id, function(err) {
-    if (err) res.send('404');
-    res.send('playing ' + id);
-  });
-});
-
-app.get('/search/:query', function(req, res) {
-  var url = 'https://api.spotify.com/v1/search?' +
-    qs.stringify({
-      q: req.params.query,
-      type: 'track'
-    });
-  request.get(url).pipe(res);
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
