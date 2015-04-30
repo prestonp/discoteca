@@ -40,7 +40,14 @@ Configure
 cp config.js.sample config.js
 ```
 
-Then replace credentials and server setup options.
+Replace spotify credentials and server setup options. If you are having trouble
+logging in, try setting `remember` and `useRemembered` to false.
+
+```shell
+cp path.js.sample path.js
+```
+
+Replace your server info in `path.js`.
 
 Run
 -------

@@ -1,4 +1,4 @@
-var config = require('./config');
-var socket = io.connect(config.path);
+var path = require('./path');
+var socket = io.connect(path.baseUrl + ':' + path.port);
 
 module.exports = socket;
