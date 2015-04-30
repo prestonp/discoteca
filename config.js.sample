@@ -8,10 +8,6 @@ var config = {
   , cacheFolder: 'cache'
   , settingsFolder: 'settings'
   }
-, baseUrl: process.env.BASEURL || 'http://localhost' // server url
-, port: process.env.PORT || 4000 // server port
 };
-
-config.path = config.baseUrl + ':' + config.port;
 
 module.exports = config;
