@@ -42,7 +42,8 @@ View.prototype.onSearch = function(e) {
   this.emit('search', this.$searchInput.val());
 };
 
-View.prototype.onTabClick = function() {
+View.prototype.onTabClick = function(e) {
+  e.preventDefault();
   var $this = $(this);
   var $sections = $('section').addClass('hide');
   var $links = $('nav a').removeClass('active');
@@ -73,7 +74,9 @@ View.prototype.onSearchResponse = function(tracks) {
 
   // todo: refactor this crap
   $('.btn-queue').on('click', function(e) {
-     _this.emit('enqueue', $(e.target).data('link'));
+    $btn = $(e.target);
+    $btn.prop('disabled', true).html('Queued');
+     _this.emit('enqueue', $btn.data('link'));
   });
 };
 

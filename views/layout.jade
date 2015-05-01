@@ -16,32 +16,33 @@ html
         a.active(href="#" data-toggle="section-queue") Queue
         a(href="#" data-toggle="section-search") Search
         .stats
-    section.section-queue
-      .container
-        table.table
-          thead
-            tr
-              th Track
-              th Artist
-              th Time
-              th
-          tbody
-        ul.queue-list
-    section.section-search.hide
-      .container
-        .search
-          form.form-search
-            input.search-input(type='text', placeholder='Search tracks, artists or albums')
-            button.search-btn(type='submit') Search
-      .container
-        table.table
-          thead
-            tr
-              th Track
-              th Artist
-              th Time
-              th
-          tbody
+    main
+      section.section-queue
+        .container
+          table.table
+            thead
+              tr
+                th Track
+                th Artist
+                th Time
+                th
+            tbody
+          ul.queue-list
+      section.section-search.hide
+        .container
+          .search
+            form.form-search
+              input.search-input(type='text', placeholder='Search tracks, artists or albums')
+              button.search-btn(type='submit') Search
+        .container
+          table.table
+            thead
+              tr
+                th Track
+                th Artist
+                th Time
+                th
+            tbody
     block content
     block scripts
       script(src="http://code.jquery.com/jquery-1.11.0.min.js")

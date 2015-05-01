@@ -1,5 +1,8 @@
-
 @import "../components/normalize.css/normalize.css";
+
+* {
+  transition: all 300ms cubic-bezier(0.34,1.61,0.7,1);
+}
 
 body {
   font-size: 18px;
@@ -109,6 +112,7 @@ nav a {
   color: @light-gray;
   text-decoration: none;
   padding: 10px;
+  border-bottom: 5px solid @gray;
 }
 
 nav a:hover {
@@ -138,6 +142,14 @@ nav .stats {
   border: 1px solid @black;
   border-radius: 25px;
   padding: 10px 20px;
+  width: 110px;
+}
+
+.btn-queue:disabled,
+.btn-queue:disabled:hover {
+  border-color: @green;
+  background-color: @green;
+  color: @white;
 }
 
 .btn-queue:hover {
@@ -151,3 +163,4 @@ nav .stats {
 @gray: #333743;
 @light-gray: #d3d3d3;
 @cream: #fefae2;
+@green: #10ca1d;
