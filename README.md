@@ -33,6 +33,10 @@ git clone https://github.com/prestonp/discoteca.git
 npm install
 ```
 
+Compiling node-spotify from npm does not work atm, but the binary builds
+at the [node-spotify](http://www.node-spotify.com/) homepage do. To install
+unzip the file contents to `/node_modules`.
+
 Configure
 ---------
 
