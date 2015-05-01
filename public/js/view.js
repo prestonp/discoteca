@@ -45,11 +45,18 @@ View.prototype.onSearch = function(e) {
 View.prototype.onTabClick = function(e) {
   e.preventDefault();
   var $this = $(this);
-  var $sections = $('section').addClass('hide');
+
+  // Update tabs
   var $links = $('nav a').removeClass('active');
   $this.addClass('active');
-  var $target = $( '.' + $this.data('toggle')).removeClass('hide');
+
+  // Update main
+  if ($this.data('toggle') === 'section-search')
+    $('main').addClass('flip');
+  else
+    $('main').removeClass('flip');
 };
+
 
 View.prototype.onSearchResponse = function(tracks) {
   var _this = this;
