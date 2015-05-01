@@ -34,7 +34,7 @@ npm install
 ```
 
 Compiling node-spotify from npm does not work atm, but the binary builds
-at the [node-spotify](http://www.node-spotify.com/) homepage do. To install
+at the [node-spotify](http://www.node-spotify.com/) homepage do. To install,
 unzip the file contents to `/node_modules`.
 
 Configure
