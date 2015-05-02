@@ -8,6 +8,7 @@ var config = {
   , cacheFolder: 'cache'
   , settingsFolder: 'settings'
   }
+, limit: 10 // optional number of search results
 };
 
 module.exports = config;

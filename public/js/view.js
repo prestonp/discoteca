@@ -119,6 +119,15 @@ View.prototype.onQueueList = function(queue) {
   this.$queueList.html(queue);
 };
 
+View.prototype.onCoverUpdate = function(covers) {
+  if (covers.length) {
+    covers.sort(function smallerHeight(a, b) {
+      return a.height - b.height;
+    });
+    $('.album').prop('src', covers[0].url);
+  }
+};
+
 View.prototype.setTitle = function(text) {
   tm.text(text);
 };
